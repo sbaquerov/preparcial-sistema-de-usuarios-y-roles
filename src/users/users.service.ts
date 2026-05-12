@@ -86,7 +86,6 @@ export class UsersService {
     return this.usersRepository.save(user);
   }
 
-  // Helper para construir el objeto público de un usuario (sin password)
   toPublic(user: User) {
     return {
       id: user.id,

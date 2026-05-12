@@ -38,7 +38,6 @@ export class AuthService {
     }
 
     if (!user.is_active) {
-      // 423 Locked
       throw new HttpException('Usuario desactivado', 423);
     }
 

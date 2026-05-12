@@ -17,7 +17,6 @@ export class RolesGuard implements CanActivate {
       [context.getHandler(), context.getClass()],
     );
 
-    // Si no hay roles requeridos, permite el acceso (solo basta con autenticación)
     if (!requiredRoles || requiredRoles.length === 0) {
       return true;
     }
@@ -28,7 +27,6 @@ export class RolesGuard implements CanActivate {
       throw new ForbiddenException('No autorizado');
     }
 
-    // El payload del JWT trae los nombres de los roles
     const userRoleNames: string[] = user.roles;
 
     const hasRole = requiredRoles.some((role) => userRoleNames.includes(role));

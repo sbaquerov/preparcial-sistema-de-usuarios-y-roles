@@ -20,7 +20,7 @@ import { UsersModule } from './users/users.module';
         password: configService.get<string>('DB_PASS', 'postgres'),
         database: configService.get<string>('DB_NAME', 'users_roles_db'),
         entities: [User, Role],
-        synchronize: false, // usamos migraciones
+        synchronize: false, 
         autoLoadEntities: true,
       }),
     }),

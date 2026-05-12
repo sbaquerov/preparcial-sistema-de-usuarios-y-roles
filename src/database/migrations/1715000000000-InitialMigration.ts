@@ -4,10 +4,8 @@ export class InitialMigration1715000000000 implements MigrationInterface {
   name = 'InitialMigration1715000000000';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
-    // Extensión necesaria para uuid_generate_v4
     await queryRunner.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
 
-    // Tabla users
     await queryRunner.query(`
       CREATE TABLE "users" (
         "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
@@ -22,7 +20,6 @@ export class InitialMigration1715000000000 implements MigrationInterface {
       )
     `);
 
-    // Tabla roles
     await queryRunner.query(`
       CREATE TABLE "roles" (
         "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
@@ -34,7 +31,6 @@ export class InitialMigration1715000000000 implements MigrationInterface {
       )
     `);
 
-    // Tabla pivote users_roles (many-to-many)
     await queryRunner.query(`
       CREATE TABLE "users_roles" (
         "user_id" uuid NOT NULL,

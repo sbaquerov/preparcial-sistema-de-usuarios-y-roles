@@ -27,7 +27,6 @@ export class RegisterDto {
   @IsBoolean()
   is_active?: boolean;
 
-  // Permite asignar roles directamente al registrar (por nombre)
   @IsOptional()
   @IsArray()
   @IsString({ each: true })

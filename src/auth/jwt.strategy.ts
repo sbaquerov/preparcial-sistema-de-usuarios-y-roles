@@ -4,9 +4,9 @@ import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 
 export interface JwtPayload {
-  sub: string; // userId
+  sub: string; 
   email: string;
-  roles: string[]; // nombres de roles
+  roles: string[]; 
 }
 
 @Injectable()
@@ -23,7 +23,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     if (!payload || !payload.sub) {
       throw new UnauthorizedException('Token inválido o faltante');
     }
-    // Lo que se retorna aquí queda en request.user
     return {
       userId: payload.sub,
       email: payload.email,

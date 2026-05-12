@@ -40,7 +40,6 @@ export class UsersController {
     };
   }
 
-  // GET /users -> admin
   @Get()
   @Roles('admin')
   @HttpCode(HttpStatus.OK)
@@ -57,7 +56,6 @@ export class UsersController {
     });
   }
 
-  // PATCH /users/:id/roles -> admin
   @Patch(':id/roles')
   @Roles('admin')
   @HttpCode(HttpStatus.OK)
