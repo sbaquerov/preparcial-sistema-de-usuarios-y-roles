@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Appointment } from './appointments/appointment.entity';
+import { AppointmentsModule } from './appointments/appointments.module';
 import { AuthModule } from './auth/auth.module';
 import { Role } from './roles/role.entity';
 import { RolesModule } from './roles/roles.module';
@@ -19,14 +21,15 @@ import { UsersModule } from './users/users.module';
         username: configService.get<string>('DB_USER', 'postgres'),
         password: configService.get<string>('DB_PASS', 'postgres'),
         database: configService.get<string>('DB_NAME', 'users_roles_db'),
-        entities: [User, Role],
-        synchronize: false, 
+        entities: [User, Role, Appointment],
+        synchronize: false,
         autoLoadEntities: true,
       }),
     }),
     AuthModule,
     UsersModule,
     RolesModule,
+    AppointmentsModule,
   ],
 })
 export class AppModule {}

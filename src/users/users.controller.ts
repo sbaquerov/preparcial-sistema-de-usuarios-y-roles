@@ -22,7 +22,7 @@ import { UsersService } from './users.service';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
-  // GET /users/me  -> cualquier usuario autenticado
+  
   @Get('me')
   @HttpCode(HttpStatus.OK)
   async me(@Req() req: any) {

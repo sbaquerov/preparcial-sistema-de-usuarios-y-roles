@@ -39,7 +39,7 @@ export class UsersService {
       is_active: dto.is_active !== undefined ? dto.is_active : true,
     });
 
-    // Si se asignan roles en el registro
+   
     if (dto.roles && dto.roles.length > 0) {
       const roles = await this.rolesService.findByNames(dto.roles);
       if (roles.length !== dto.roles.length) {

@@ -15,6 +15,7 @@
 BEGIN;
 
 -- Limpiar datos previos (opcional, comentar si no se desea reiniciar)
+DELETE FROM appointments;
 DELETE FROM users_roles;
 DELETE FROM users;
 DELETE FROM roles;
